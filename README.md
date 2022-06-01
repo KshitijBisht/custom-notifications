@@ -17,8 +17,43 @@ Install attention.js is quite easy.
 
 ### Install script
 
+Just include the script `customNotification.js` into your project and put the script before the closing body tag.
 
+``` html
+<html>
+    <head>
+    </head>
+    <body>
+        <script src="customNotification.js`"></script>
+    </body>
+</html>
 
+```
+## Components
+
+### Error
+
+``` javascript
+
+   <custom-notification id="error"></custom-notification>
+
+```
+
+### Success
+
+``` javascript
+
+   <custom-notification id="success"></custom-notification>
+
+```
+
+### Info
+
+``` javascript
+
+   <custom-notification id="info"></custom-notification>
+
+```
 
 
 
