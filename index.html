@@ -10,7 +10,11 @@
 <body>
     <div class="container">
         <h1>Custom Notifications</h1>
-        <p>Here it is <custom-notification></custom-notification</p>
+        <p>Here it is 
+        <custom-notification notification_background="#ffcc00">
+        <span slot="message">Message passed as a prop</span>        
+        </custom-notification>
+    </p>
     </div>
     <script src="customNotification.js"></script>
 </body>
