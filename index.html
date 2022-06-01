@@ -10,12 +10,22 @@
 <body>
     <div class="container">
         <h1>Custom Notifications</h1>
-        <p>Here it is 
-        <custom-notification notification_background="#ffcc00">
-        <span slot="message">Message passed as a prop</span>        
-        </custom-notification>
-    </p>
+        <custom-notification id="error" style="display: none;"></custom-notification>
+        <custom-notification id="success" style="display: none;"></custom-notification>
+        <custom-notification id="info" style="display: none;"></custom-notification>
+        <button onclick="handleClick('error')">Show Error</button>
+        <button onclick="handleClick('success')">Show Success</button>
+        <button onclick="handleClick('info')">Show Info</button>
     </div>
+
     <script src="customNotification.js"></script>
+
+    <script>
+        function handleClick(notificationType) {
+            const component = document.getElementById(notificationType)
+            component.style.display = component.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
 </body>
 </html>
