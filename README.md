@@ -54,7 +54,9 @@ Just include the script `customNotification.js` into your project and put the sc
    <custom-notification id="info"></custom-notification>
 
 ```
+### Notes
 
+To show and hide the notification dialog you need to add that logic in your code. For exapmle use v-if directive in Vue js.
 
 
 ## Get in touch
