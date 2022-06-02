@@ -19,7 +19,6 @@ template.innerHTML = `
         border-radius: .5em;
         padding: 1em;
     }
-
     </style>
 
     <div class="container">
@@ -28,41 +27,51 @@ template.innerHTML = `
             <p class="notify-content"> </p>
         </div>    
     </div>
-
-
-
 `
 
 class CustomNotification extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+       this.Root = this.attachShadow({mode: 'open'});
+        this.Root.appendChild(template.content.cloneNode(true));
+
+        // Notification Titles and Messages
+        this.errorTitle = 'Error'
+        this.successTitle = 'Success'
+        this.infoTitle = 'Info'
+        this.errorMessage = 'Error in Operation'
+        this.sucessMessage = 'Success in Operation'
+        this.infoMessage = 'This was the information'
     }
+
     // do something once dom is loaded
     connectedCallback(){
+
         const notificationType = this.getAttribute('id');
         const notifyTitle = this.shadowRoot.querySelector('.notify-title');
         const notifyContent = this.shadowRoot.querySelector('.notify-content');
         const notifyContainer = this.shadowRoot.querySelector('.notify-container')
 
-        if(notificationType && notificationType === 'error'){
-            notifyTitle.innerHTML = 'Error'
-            notifyContent.innerHTML = 'Error in Operation'
+    if(notificationType){
+        if(notificationType === 'error'){
+            notifyTitle.innerHTML = this.errorTitle
+            notifyContent.innerHTML = this.errorMessage
             notifyContainer.style.background = "#bd0909"
         }
-        else if(notificationType && notificationType  === 'success'){
-            notifyTitle.innerHTML = 'Success'
-            notifyContent.innerHTML = 'Success in Operation'
+        else if(notificationType  === 'success'){
+            notifyTitle.innerHTML = this.successTitle
+            notifyContent.innerHTML =  this.sucessMessage
             notifyContainer.style.background = "green"
         }
-        else if(notificationType && notificationType  === 'info'){
-            notifyTitle.innerHTML = 'Info'
-            notifyContent.innerHTML = 'This was the information'
+        else if(notificationType  === 'info'){
+            notifyTitle.innerHTML = this.infoTitle
+            notifyContent.innerHTML = this.infoMessage 
             notifyContainer.style.background = "orange"
         }
+    }
         
     }
+      
 }
 
 window.customElements.define('custom-notification',CustomNotification)
